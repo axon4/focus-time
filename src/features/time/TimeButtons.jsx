@@ -6,13 +6,13 @@ const TimeButtons = ({ onChangeTime }) => {
 	return (
 		<Fragment>
 			<View style={styles.timeButton}>
-				<RoundedButton title='7' size={75} onPress={() => onChangeTime(7)} />
+				<RoundedButton title='7' size={75} onPress={() => {onChangeTime(7)}} />
 			</View>
 			<View style={styles.timeButton}>
-				<RoundedButton title='13' size={75} onPress={() => onChangeTime(13)} />
+				<RoundedButton title='13' size={75} onPress={() => {onChangeTime(13)}} />
 			</View>
 			<View style={styles.timeButton}>
-				<RoundedButton title='19' size={75} onPress={() => onChangeTime(19)} />
+				<RoundedButton title='19' size={75} onPress={() => {onChangeTime(19)}} />
 			</View>
 		</Fragment>
 	);

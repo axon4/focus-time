@@ -23,6 +23,6 @@ const styles = size => StyleSheet.create({
 		fontSize: size / 3.5,
 		color: '#847DAB'
 	}
-})
+});
 
 export default RoundedButton;

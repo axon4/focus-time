@@ -2,20 +2,18 @@
 	"expo": {
 		"name": "focus-time",
 		"slug": "snack-94a7be88-0420-486a-a2cd-eccb8f34751d",
-		"version": "1.0.0",
+		"version": "0.0.1",
 		"orientation": "portrait",
 		"icon": "./assets/icon.png",
 		"splash": {
 			"image": "./assets/splash.png",
 			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
+			"backgroundColor": "#FFFFFF"
 		},
 		"updates": {
 			"fallbackToCacheTimeout": 0
 		},
-		"assetBundlePatterns": [
-			"**/*"
-		],
+		"assetBundlePatterns": ["**/*"],
 		"ios": {
 			"supportsTablet": true
 		},

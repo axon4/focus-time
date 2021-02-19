@@ -6,8 +6,8 @@ import Timer from './src/features/time/Timer.jsx';
 import { paddingSizes } from './src/utils/sizes';
 import { colours } from './src/utils/colours';
 
-function App() {
-	const STATUSES = {
+function Application() {
+	const STATI = {
 		COMPLETE: 1,
 		CANCELLED: 2
 	};
@@ -27,7 +27,7 @@ function App() {
 		try {
 			await AsyncStorage.setItem('focusHistory', JSON.stringify(focusHistory));
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		};
 	};
 
@@ -39,8 +39,8 @@ function App() {
 				setFocusHistory(JSON.parse(savedFocusHistory));
 			};
 		} catch (error) {
-			console.log(error);
-		}
+			console.error(error);
+		};
 	};
 
 	useEffect(() => {
@@ -57,21 +57,18 @@ function App() {
 				<Timer
 					focusSubject={focusSubject}
 					clearSubject={() => {
-						addFocusHistorySubjectWithStatus(focusSubject, STATUSES.CANCELLED);
+						addFocusHistorySubjectWithStatus(focusSubject, STATI.CANCELLED);
 						setFocusSubject(null);
 					}}
 					onTimerEnd={() => {
-						addFocusHistorySubjectWithStatus(focusSubject, STATUSES.COMPLETE);
+						addFocusHistorySubjectWithStatus(focusSubject, STATI.COMPLETE);
 						setFocusSubject(null);
 					}}
 				/>
 			) : (
 				<View style={{flex: 1}}>
 					<Focus addSubject={setFocusSubject} />
-					<FocusHistory
-						focusHistory={focusHistory}
-						onClear={onClear}
-					/>
+					<FocusHistory focusHistory={focusHistory} onClear={onClear} />
 				</View>
 			)}
 		</View>
@@ -86,4 +83,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default App;
+export default Application;

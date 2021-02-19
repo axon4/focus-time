@@ -4,20 +4,16 @@ import RoundedButton from '../../components/RoundedButton.jsx';
 import { paddingSizes, fontSizes } from '../../utils/sizes';
 import { colours } from '../../utils/colours';
 
-const HistoryItem = ({ index, item }) => {
-	return (
-		<Text style={styles.historyItem(item.status)}>{item.subject}</Text>
-	);
-};
+const HistoryItem = ({ index, item }) => <Text style={styles.historyItem(item.status)}>{item.subject}</Text>
 
 const FocusHistory = ({ focusHistory, onClear }) => {
-	const clearHistory = () => onClear();
+	const clearHistory = () => {onClear()};
 
 	return (
 		<SafeAreaView style={{flex: 0.5, alignItems: 'center'}}>
 			{!!focusHistory.length && (
 				<>
-					<Text style={styles.title}>Things We've Focussed on:</Text>
+					<Text style={styles.title}>Things You've Focussed On:</Text>
 					<FlatList
 						style={{flex: 1}}
 						contentContainerStyle={{flex: 1, alignItems: 'center'}}

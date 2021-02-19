@@ -12,9 +12,9 @@ const Focus = ({ addSubject }) => {
 		<View style={styles.container}>
 			<View style={styles.innerContainer}>
 				<Text style={styles.title}>What Would You Like To Focus On?</Text>
-				<View style={styles.textInputContainer}>
-					<TextInput style={{flex: 1, marginRight: marginSizes.medium}} onSubmitEditing={({ nativeEvent }) => setSubject(nativeEvent.text)} />
-					<RoundedButton title='+' size={49} onPress={() => addSubject(subject)} />
+				<View style={styles.textInPutContainer}>
+					<TextInput style={{flex: 1, marginRight: marginSizes.medium}} onSubmitEditing={({ nativeEvent }) => {setSubject(nativeEvent.text)}} />
+					<RoundedButton title='+' size={49} onPress={() => {addSubject(subject)}} />
 				</View>
 			</View>
 		</View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: colours.purple
 	},
-	textInputContainer: {
+	textInPutContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		paddingTop: paddingSizes.medium

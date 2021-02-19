@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Platform, Vibration } from 'react-native';
 import { useKeepAwake } from 'expo-keep-awake';
 import { ProgressBar } from 'react-native-paper';
-import TimeButtons from './TimeButtons.jsx'
+import TimeButtons from './TimeButtons.jsx';
 import CountDown from '../../components/CountDown.jsx';
 import RoundedButton from '../../components/RoundedButton.jsx';
 import { marginSizes, paddingSizes } from '../../utils/sizes';
@@ -17,7 +17,7 @@ const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
 	const [ isStarted, setIsStarted ] = useState(false);
 	const [ progress, setProgress ] = useState(1);
 
-	const onProgress = progress => setProgress(progress);
+	const onProgress = progress => {setProgress(progress)};
 
 	const changeTime = minutes => {
 		setMinutes(minutes);
@@ -27,8 +27,13 @@ const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
 
 	const vibrate = () => {
 		if (Platform.OS === 'ios') {
-			const interval = setInterval(() => Vibration.vibrate(), 1000);
-			setTimeout(() => clearInterval(interval), 7000);
+			const interval = setInterval(() => {
+				Vibration.vibrate();
+			}, 1000);
+
+			setTimeout(() => {
+				clearInterval(interval);
+			}, 7000);
 		} else {
 			Vibration.vibrate(7000);
 		};
@@ -47,7 +52,7 @@ const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
 			<View style={styles.countDown}>
 				<CountDown minutes={minutes} isPaused={!isStarted} onProgress={onProgress} onEnd={onEnd} />
 			</View>
-			<View style={{ marginTop: marginSizes.xxlarge}}>
+			<View style={{marginTop: marginSizes.xxlarge}}>
 				<Text style={styles.title}>Focussing On:</Text>
 				<Text style={styles.task}>{focusSubject}</Text>
 			</View>
@@ -58,7 +63,7 @@ const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
 				<TimeButtons onChangeTime={changeTime} />
 			</View>
 			<View style={styles.buttonContainer}>
-				{isStarted ? <RoundedButton title='PAUSE' onPress={() => setIsStarted(false)} /> : <RoundedButton title='START' onPress={() => setIsStarted(true)} />}
+				{isStarted ? <RoundedButton title='PAUSE' onPress={() => {setIsStarted(false)}} /> : <RoundedButton title='START' onPress={() => {setIsStarted(true)}} />}
 			</View>
 			<View style={styles.clearSubject}>
 				<RoundedButton title='-' size={50} onPress={clearSubject} />
